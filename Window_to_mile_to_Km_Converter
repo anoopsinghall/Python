@@ -1,0 +1,49 @@
+# this program uses tkinter library to create a form and do basic calculation on press action
+# on button
+
+# notes
+# .grid(column = , row = ) is used to place the widgets on the form
+# .config () is used to re-assign a value to the property of a class 
+# example line 15 line 39
+
+import tkinter
+
+# Creating a new window and configurations
+window = tkinter.Tk()
+window.title("Mile to Km Converter")
+# window.minsize(width=300, height=300)
+window.config(padx=20, pady=20)
+
+# Labels
+label1 = tkinter.Label(text="is equal to")
+label1.grid(column=0, row=1)
+
+label2 = tkinter.Label(text="Miles")
+label2.grid(column=2, row=0)
+
+label3 = tkinter.Label(text="Km")
+label3.grid(column=2, row=1)
+
+# stores the calculated value miles * 1.6
+label4_km = tkinter.Label(text=0)
+label4_km.grid(column=1, row=1)
+
+# Entries for user to enter a value on the form
+miles = tkinter.Entry(width=7)
+miles.grid(column=1, row=0)
+
+
+# command on press action on Buttons
+def action(*args):
+    x = miles.get()
+    kilometer = float(x) * 1.609
+    # reassign the text property of label4_km label to display kilometer
+    label4_km.config(text=kilometer)
+
+
+# calls action() when pressed
+button = tkinter.Button(text="Calculate", command=action)
+button.grid(column=1, row=2)
+
+# to keep the window/form open
+window.mainloop()
